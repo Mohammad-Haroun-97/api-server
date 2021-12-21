@@ -6,6 +6,7 @@ const express = require('express');
 const router = express.Router();
 
 const {foodCollection} = require('../models/index');
+
 router.get('/food',getfood);
 router.get('/food/:id',getfood);
 router.post('/food',createfood);
@@ -14,6 +15,11 @@ router.delete('/food/:id',deleteFood);
 
 
 
+async function createfood(req,res) {
+    let newCusInfo = req.body;
+    let food = await foodCollection.createddd(newCusInfo);
+    res.status(201).json(food);
+}
 
 
 async function getfood(req,res) {
@@ -23,11 +29,6 @@ async function getfood(req,res) {
     res.status(200).json(food);
 }
 
-async function createfood(req,res) {
-    let newCusInfo = req.body;
-    let food = await foodCollection.create(newCusInfo);
-    res.status(201).json(food);
-}
 
 async function updateFood(req, res) {
   const id = parseInt(req.params.id);

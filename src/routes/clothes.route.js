@@ -4,34 +4,34 @@ const express = require('express');
 
 const router = express.Router();
 
-const {clothesCollection} = require('../models/index');
+const {booksCollection} = require('../models/index');
 
-router.get('/clothes',getClothes);
-router.post('/clothes',createClothes);
-router.put('/clothes/:id',updateclothes);
-router.delete('/clothes/:id',deleteclothes);
+router.get('/books',getClothes);
+router.post('/books',createClothes);
+router.put('/books/:id',updateclothes);
+router.delete('/books/:id',deleteclothes);
 
 
 async function getClothes(req,res) {
-    let clothes = await clothesCollection.read();
+    let clothes = await booksCollection.read();
     res.status(200).json(clothes);
 }
 
 async function createClothes(req,res) {
     let newCusInfo = req.body;
-    let clothes = await clothesCollection.create(newCusInfo);
+    let clothes = await booksCollection.createddd(newCusInfo);
     res.status(201).json(clothes);
 }
 
 async function updateclothes(req, res) {
   const id = parseInt(req.params.id);
   const obj = req.body;
-  let clothesItem = await clothesCollection.update(id,obj);
+  let clothesItem = await booksCollection.update(id,obj);
   res.status(201).json(clothesItem);
 }
 async function deleteclothes(req, res) {
   const id = parseInt(req.params.id);
-  let clothesItem =await clothesCollection.delete(id);
+  let clothesItem =await booksCollection.delete(id);
   res.status(204).json(clothesItem);
 }
 
