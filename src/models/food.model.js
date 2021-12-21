@@ -1,14 +1,24 @@
 // Our table schema
-const food = (sequelize, DataTypes) => sequelize.define('Food', {
+const catagories = (sequelize, DataTypes) => sequelize.define('catagories', {
 
-    favariteFood1: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
   
-    favariteFood2: {
+    normalized_name: {
       type: DataTypes.STRING,
-    }
+      allowNull:false
+  },
+    Display_Name: {
+      type: DataTypes.STRING,
+      allowNull:false
+  },
+    Description: {
+      type: DataTypes.STRING,
+      allowNull:false
+  },
+
+ 
+
+
+  
   });
   
-  module.exports = food;
+  module.exports = catagories;
