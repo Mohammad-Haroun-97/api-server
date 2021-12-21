@@ -1,14 +1,22 @@
 // Our table schema
-const clothes = (sequelize, DataTypes) => sequelize.define('clothes', {
+const Books = (sequelize, DataTypes) => sequelize.define('Books', {
 
-    dress: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-  
-    shirts: {
-      type: DataTypes.STRING,
-    }
+  name: {
+    type: DataTypes.STRING,
+    allowNull:false
+},
+description: {
+    type: DataTypes.STRING
+},
+price: {
+    type: DataTypes.INTEGER
+},
+inventoryCount: {
+    type: DataTypes.INTEGER
+},
+image: {
+    type: DataTypes.STRING
+}
   });
   
-  module.exports = clothes;
+  module.exports = Books;

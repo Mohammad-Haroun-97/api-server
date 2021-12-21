@@ -1,7 +1,8 @@
 'use strict'
-
+// Connects to our database depending on the URI as an environmental variable
 const POSTGRES_URL = process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
 
+// require both the Sequelize and Datatype  constructor from the sequelize package
 const { Sequelize, DataTypes } = require('sequelize');
 
 
@@ -23,10 +24,10 @@ let sequelize = new Sequelize(POSTGRES_URL, sequelizeOptions);
 
 
 const food = require('./food.model');
-const clothes = require('./clothes.model');
+const Books = require('./clothes.model');
 
 const foodModel = food(sequelize, DataTypes) // connect model
-const clothesModel= clothes(sequelize, DataTypes)
+const BooksModel= Books(sequelize, DataTypes)
 
 // customerModel.hasMany(orderModel,{foreignKey:'customerId',sourceKey:'id'});
 // orderModel.belongsTo(customerModel,{foreignKey:'customerId',targetKey:'id'})
@@ -34,7 +35,7 @@ const clothesModel= clothes(sequelize, DataTypes)
 const Collection = require('./collection');
 
 const foodCollection = new Collection(foodModel);
-const clothesCollection = new Collection(clothesModel);
+const booksCollection = new Collection(BooksModel);
 
 
 
@@ -42,6 +43,6 @@ module.exports = {
   db: sequelize,
 
   foodCollection: foodCollection,
-  clothesCollection: clothesCollection
+  booksCollection: booksCollection // this step is used to create a new table
 };
 

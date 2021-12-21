@@ -5,7 +5,7 @@ class Collection {
         this.model = model;
     }
 
-    async create(obj) {
+    async createddd(obj) {
         try {
             let newRecord = await this.model.create(obj);
             return newRecord;
