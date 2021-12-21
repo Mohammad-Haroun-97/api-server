@@ -5,6 +5,8 @@ const express=require('express');
 require('dotenv').config();
 const app=express();
 const PORT =process.env.PORT ||3030
+const cors =require('cors')
+app.use(cors({ origin: '*' }));
 
 //modules
 const errorHandler=require('./error-handlers/500.js');
