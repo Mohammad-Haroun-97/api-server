@@ -16,7 +16,11 @@ inventoryCount: {
 },
 image: {
     type: DataTypes.STRING
+},
+catagory: {
+    type: DataTypes.STRING
 }
+
   });
   
   module.exports = Books;
