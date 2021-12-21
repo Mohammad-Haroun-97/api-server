@@ -23,10 +23,10 @@ let sequelize = new Sequelize(POSTGRES_URL, sequelizeOptions);
 
 
 
-const food = require('./food.model');
+const catagories = require('./food.model');
 const Books = require('./clothes.model');
 
-const foodModel = food(sequelize, DataTypes) // connect model
+const catagoriesModel = catagories(sequelize, DataTypes) // connect model
 const BooksModel= Books(sequelize, DataTypes)
 
 // customerModel.hasMany(orderModel,{foreignKey:'customerId',sourceKey:'id'});
@@ -34,7 +34,7 @@ const BooksModel= Books(sequelize, DataTypes)
 
 const Collection = require('./collection');
 
-const foodCollection = new Collection(foodModel);
+const catagoriesCollection = new Collection(catagoriesModel);
 const booksCollection = new Collection(BooksModel);
 
 
@@ -42,7 +42,7 @@ const booksCollection = new Collection(BooksModel);
 module.exports = {
   db: sequelize,
 
-  foodCollection: foodCollection,
+  catagoriesCollection: catagoriesCollection,
   booksCollection: booksCollection // this step is used to create a new table
 };
 

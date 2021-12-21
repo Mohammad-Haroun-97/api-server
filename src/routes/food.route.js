@@ -5,19 +5,19 @@ const express = require('express');
 
 const router = express.Router();
 
-const {foodCollection} = require('../models/index');
+const {catagoriesCollection} = require('../models/index');
 
-router.get('/food',getfood);
-router.get('/food/:id',getfood);
-router.post('/food',createfood);
-router.put('/food/:id',updateFood);
-router.delete('/food/:id',deleteFood);
+router.get('/catagories',getfood);
+router.get('/catagories/:id',getfood);
+router.post('/catagories',createfood);
+router.put('/catagories/:id',updateFood);
+router.delete('/catagories/:id',deleteFood);
 
 
 
 async function createfood(req,res) {
     let newCusInfo = req.body;
-    let food = await foodCollection.createddd(newCusInfo);
+    let food = await catagoriesCollection.createddd(newCusInfo);
     res.status(201).json(food);
 }
 
@@ -25,7 +25,7 @@ async function createfood(req,res) {
 async function getfood(req,res) {
   const id = parseInt(req.params.id);
 
-    let food = await foodCollection.read(id);
+    let food = await catagoriesCollection.read(id);
     res.status(200).json(food);
 }
 
@@ -33,12 +33,12 @@ async function getfood(req,res) {
 async function updateFood(req, res) {
   const id = parseInt(req.params.id);
   const obj = req.body;
-  let foodItem = await foodCollection.update(id,obj);
+  let foodItem = await catagoriesCollection.update(id,obj);
   res.status(201).json(foodItem);
 }
 async function deleteFood(req, res) {
   const id = parseInt(req.params.id);
-  let foodItem =await foodCollection.delete(id);
+  let foodItem =await catagoriesCollection.delete(id);
   res.status(204).json(foodItem);
 }
 
